@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Connection</title>
+</head>
+<body>
+    <h1>Database Connection</h1>
+    <p>Please enter the following information to connect to your MySQL database:</p>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="host">Host:</label><br>
+        {{ form.host }}
+        <br><br>
+
+        <label for="port">Port:</label><br>
+        {{ form.port }}
+        <br><br>
+
+        <label for="database_name">Database Name:</label><br>
+        {{ form.database_name }}
+        <br><br>
+
+        <label for="username">Username:</label><br>
+        {{ form.username }}
+        <br><br>
+
+        <label for="password">Password:</label><br>
+        {{ form.password }}
+        <br><br>
+
+        <button type="submit">Connect to Database</button>
+    </form>
+</body>
+</html>

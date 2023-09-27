@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Query Execution</title>
+</head>
+<body>
+    <h1>SQL Query Execution</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Execute Query</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Result</title>
+</head>
+<body>
+    <h1>Query Result</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <!-- Include table column headers here -->
+                {% for column_name in formatted_query_result.columns %}
+                    <th>{{ column_name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in formatted_query_result.rows %}
+                <tr>
+                    <!-- Include table data here -->
+                    {% for column_name, value in row.items %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

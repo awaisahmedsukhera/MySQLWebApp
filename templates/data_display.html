@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL Data Viewer</title>
+</head>
+<body>
+    <h1>MySQL Data Viewer</h1>
+
+    <h2>Tables in the Database:</h2>
+    <ul>
+        {% for table_name in table_names %}
+            <li>{{ table_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'execute_query' %}" style="text-decoration: none;">
+        <button style="background-color: #008CBA; color: white;">Execute SQL Query</button>
+    </a>
+
+    {% for table_name, data in table_data.items %}
+        <h3>{{ table_name }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <!-- Include table column headers here -->
+                    {% for column_name in data.columns %}
+                        <th>{{ column_name }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data.rows %}
+                    <tr>
+                        <!-- Include table data here -->
+                        {% for column_name, value in row.items %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>
